@@ -1,5 +1,3 @@
-import { contains } from 'cypress/types/jquery'
-
 describe('add product to cart', () => {
   beforeEach(() => {
     cy.visit('/')

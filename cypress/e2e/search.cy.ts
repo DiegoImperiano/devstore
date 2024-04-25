@@ -1,5 +1,3 @@
-import { contains } from "cypress/types/jquery"
-
 describe('search products', () => {
 
   it('should be able to search for products', () => {
