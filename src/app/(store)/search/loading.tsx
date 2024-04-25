@@ -1,4 +1,3 @@
-
 import { Skeleton } from '@/components/skeleton'
 import { CurrentSearch } from './current-search'
 import { Suspense } from 'react'

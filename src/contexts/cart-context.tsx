@@ -28,15 +28,17 @@ export function CartProvider({ children }: { children: ReactNode }) {
             return item
           }
         })
-      }else {
-        return [...state, {productId, quantity: 1}]
+      } else {
+        return [...state, { productId, quantity: 1 }]
       }
     })
   }
 
-  return <CartContext.Provider value={{items: cartItems, addToCart}}>
-    {children}
-  </CartContext.Provider>
+  return (
+    <CartContext.Provider value={{ items: cartItems, addToCart }}>
+      {children}
+    </CartContext.Provider>
+  )
 }
 
 export const useCart = () => useContext(CartContext)
