@@ -28,8 +28,10 @@ jobs:
       - uses: actions/cache@v3
         name: Setup pnpm cache
         with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: |
+            ${{ env.STORE_PATH }}
+            /home/runner/.cache/Cypress # Adicionando o caminho do cache do Cypress
+          key: ${{ runner.os }}-pnpm-store-cypress-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
@@ -37,8 +39,8 @@ jobs:
         run: pnpm install
 
       - name: Install Cypress
-        run: pnpm install cypress 
-
+        run: pnpm install cypress
+        
       - name: Cypress run
         uses: cypress-io/github-action@v6
         env: 
